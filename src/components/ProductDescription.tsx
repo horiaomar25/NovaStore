@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { Link } from "react-router-dom";
+
 import { Product } from '../types/Products';
 
 interface ProductDetailProps {
   product: Product;
+  
 }
 
 const ProductDescription: React.FC<ProductDetailProps> = ({ product }) => {
@@ -19,6 +20,8 @@ const ProductDescription: React.FC<ProductDetailProps> = ({ product }) => {
     }
   };
 
+ 
+
   return (
     <>
       {/* Product Image */}
@@ -30,7 +33,6 @@ const ProductDescription: React.FC<ProductDetailProps> = ({ product }) => {
               alt={product.title}
               width={500}
               height={500}
-             
             />
           </div>
         </figure>
@@ -42,10 +44,10 @@ const ProductDescription: React.FC<ProductDetailProps> = ({ product }) => {
         <p className="font-bold text-xl mb-6">£{product.price}</p>
         <p className="mb-6">{product.description}</p>
 
-        <div className="flex items-center xs:justify-center   space-x-2 mb-6">
+        <div className="flex items-center xs:justify-center space-x-2 mb-6">
           <button
             onClick={handleDecrease}
-            className="border border-black text-black py-2 px-4 rounded-lg  hover:bg-black hover:text-white"
+            className="border border-black text-black py-2 px-4 rounded-lg hover:bg-black hover:text-white"
           >
             -
           </button>
@@ -63,11 +65,12 @@ const ProductDescription: React.FC<ProductDetailProps> = ({ product }) => {
           </button>
         </div>
 
-        <Link to="/productlist">
-          <button className="border border-black text-black py-2 px-4 rounded-lg w-full  lg:w-11/12 text-center mt-3 hover:bg-black hover:text-white ">
-            Add to cart
-          </button>
-        </Link>
+        <button
+        
+          className="border border-black text-black py-2 px-4 rounded-lg w-full lg:w-11/12 text-center mt-3 hover:bg-black hover:text-white"
+        >
+          Add to cart
+        </button>
 
         {/* Product Rating */}
         <div className="lg:mt-6 mb-4 mt-4 flex items-center">
