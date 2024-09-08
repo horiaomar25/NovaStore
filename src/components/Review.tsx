@@ -7,10 +7,11 @@ interface ReviewSectionProps {
 
 const ReviewSection: React.FC<ReviewSectionProps> = ({ reviews }) => {
   return (
-    <div className="m-6 ">
+    <section className="flex justify-center items-center flex-col w-full">
+
       <h4 className="text-lg font-bold mb-4">Customer Reviews</h4>
       {reviews.length > 0 ? (
-        <ul className="space-y-4 ">
+        <ul className="space-y-4 w-full p-4 lg:w-1/2 md:w-full md:p-4">
           {reviews.map((review: Review, index: number) => (
             <li key={index} className="border border-gray-300 p-4 rounded-lg">
               <p className="font-bold text-gray-900">{review.reviewerName}</p>
@@ -45,7 +46,7 @@ const ReviewSection: React.FC<ReviewSectionProps> = ({ reviews }) => {
       ) : (
         <p>No reviews yet.</p>
       )}
-    </div>
+    </section>
   );
 };
 

@@ -10,12 +10,12 @@ interface ProductDetailProps {
 
 const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
   return (
-    <section className="grid grid-cols-1 gap-4 lg:grid-cols-2">
-    
-        <ProductDescription product={product}/>
-      
-      <ReviewSection reviews={product.reviews} />
-    </section>
+    <><section className="grid grid-cols-1 gap-4 lg:grid-cols-2">
+
+      <ProductDescription product={product} />
+
+
+    </section><ReviewSection reviews={product.reviews} /></>
   );
 };
 

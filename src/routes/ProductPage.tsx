@@ -1,4 +1,4 @@
-// src/pages/ProductPage.tsx
+
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Product } from '../types/Products';
