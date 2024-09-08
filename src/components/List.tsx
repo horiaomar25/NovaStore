@@ -27,7 +27,7 @@ const ProductList: React.FC = () => {
       <h1 className="text-2xl font-bold m-4">Products</h1>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 m-10 p-10">
         {allProducts.map((product) => (
-          <div key={product.id} className="cursor-pointer" onClick={() => handleClick(product.id)}>
+          <div key={product.id} className="cursor-pointer" onClick={() => handleClick(product.id.toString())}>
             <figure className="p-4">
               <img
                 src={product.thumbnail}
