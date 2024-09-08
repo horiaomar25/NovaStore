@@ -7,7 +7,7 @@ const API_URL = 'https://dummyjson.com/products/categories';
 export const fetchCategories = async (): Promise<Category[]> => {
   const response = await fetch(API_URL);
   const categories = await response.json();
-  const allowedCategories = ['beauty', 'womens-bags', "fragrances", "womens-bags", "womens-shoes", "womens-watches","tops"];
+  const allowedCategories = ['tops','beauty', "fragrances", "womens-bags", "womens-shoes", "womens-watches",];
   return categories.filter((category: Category) => allowedCategories.includes(category.slug));
 };
 
