@@ -23,6 +23,14 @@ export interface Product {
     image: string;
     thumbnail: string;
   }
+
+  export interface Review {
+    rating: number;
+    comment: string;
+    date: string;
+    reviewerName: string;
+    reviewerEmail: string;
+  }
   
   export interface Category {
     slug: string;
