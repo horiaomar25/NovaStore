@@ -1,4 +1,3 @@
-import React from "react";
 import { Review } from "../types/Products"; // Adjust import path as needed
 
 interface ReviewSectionProps {
@@ -7,11 +6,10 @@ interface ReviewSectionProps {
 
 function ReviewSection({ reviews }: ReviewSectionProps): JSX.Element {
   return (
-    <section className="flex justify-center items-center flex-col w-full">
-
+    <section className="flex justify-center items-center flex-col p-10">
       <h4 className="text-lg font-bold mb-4">Customer Reviews</h4>
       {reviews.length > 0 ? (
-        <ul className="space-y-4 w-full p-4 lg:w-1/2 md:w-full md:p-4">
+        <ul className="space-y-4 w-full ">
           {reviews.map((review: Review, index: number) => (
             <li key={index} className="border border-gray-300 p-4 rounded-lg">
               <p className="font-bold text-gray-900">{review.reviewerName}</p>
@@ -48,6 +46,6 @@ function ReviewSection({ reviews }: ReviewSectionProps): JSX.Element {
       )}
     </section>
   );
-};
+}
 
 export default ReviewSection;

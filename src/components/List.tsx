@@ -1,4 +1,4 @@
-import React from "react";
+
 import { useNavigate } from "react-router-dom"; // Import useNavigate
 import { Product } from "../types/Products"; // Import the existing Product type
 import addtocard from "../assets/addtocart.png";
@@ -8,7 +8,7 @@ interface ListProps {
   products: Product[];
 }
 
-const List: React.FC<ListProps> = ({ products }) => {
+function List({ products }: ListProps): JSX.Element {
   const navigate = useNavigate(); // Initialize useNavigate
 
   const handleClick = (id: string) => {
