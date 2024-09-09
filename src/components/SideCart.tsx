@@ -62,6 +62,15 @@ const SideCart: React.FC<SideCartProps> = ({
             </ul>
           )}
         </div>
+        <div className="flex  flex-col justify-end items-end mr-5">
+                <h3 className="text-xl font-semibold">Total:</h3>
+                <p className="text-lg font-bold">
+                  £
+                  {cartItems
+                    .reduce((acc, item) => acc + item.price * item.quantity, 0)
+                    .toFixed(2)}
+                </p>
+              </div>
 
         {/* Checkout Button */}
         <div className="p-4 border-t mt-auto">
