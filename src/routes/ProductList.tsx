@@ -1,6 +1,6 @@
-import React from 'react';
-import { useProducts } from '../hooks/useProducts';
-import List from '../components/List';
+import React from "react";
+import { useProducts } from "../hooks/useProducts";
+import List from "../components/List";
 
 const ProductList: React.FC = () => {
   const { categories, products, loading, error } = useProducts();
@@ -13,9 +13,15 @@ const ProductList: React.FC = () => {
     return <p>{error}</p>;
   }
 
-  const allProducts = categories.flatMap(category => products[category.slug] || []);
+  const allProducts = categories.flatMap(
+    (category) => products[category.slug] || []
+  );
 
-  return <List products={allProducts} />;
+  return (
+    <>
+      <List products={allProducts} />
+    </>
+  );
 };
 
 export default ProductList;

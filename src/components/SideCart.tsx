@@ -1,6 +1,3 @@
-
-
-// Define prop types
 interface SideCartProps {
   isOpen: boolean;
   toggleCart: () => void;
