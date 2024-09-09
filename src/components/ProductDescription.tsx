@@ -1,21 +1,45 @@
-import  { useState } from 'react';
-import { Product } from '../types/Products';
+import { useState } from "react";
+import { Product } from "../types/Products";
+import { ProductCart } from "../types/ProductCart";
+
+import useCart from "../hooks/useCart";
+import AddedToCart from "../components/AddedToCart";
 
 interface ProductDetailProps {
   product: Product;
 }
 
 function ProductDescription({ product }: ProductDetailProps): JSX.Element {
+  const { addToCart } = useCart();
   const [quantity, setQuantity] = useState<number>(0);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
+  // Increase quantity
   const handleIncrease = (): void => {
     setQuantity(quantity + 1);
   };
 
+  // Decrease quantity, but do not allow it to go below 1
   const handleDecrease = (): void => {
     if (quantity > 0) {
       setQuantity(quantity - 1);
     }
+  };
+
+  // Handle adding product to cart and show the modal
+  const handleAddToCart = () => {
+    const productCart: ProductCart = {
+      id: product.id,
+      title: product.title,
+      image: product.thumbnail,
+      price: product.price,
+      quantity: quantity
+    }
+    addToCart(productCart, quantity); // Add product to Cart
+    setIsModalOpen(true); // Open the modal when product is added.
+    setTimeout(() => {
+      setIsModalOpen(false);
+    }, 3000)
   };
 
   return (
@@ -61,9 +85,7 @@ function ProductDescription({ product }: ProductDetailProps): JSX.Element {
           </button>
         </div>
 
-        <button
-          className="border border-black text-black py-2 px-4 rounded-lg w-full lg:w-11/12 text-center mt-3 hover:bg-black hover:text-white"
-        >
+        <button className="border border-black text-black py-2 px-4 rounded-lg w-full lg:w-11/12 text-center mt-3 hover:bg-black hover:text-white" onClick={handleAddToCart}>
           Add to cart
         </button>
 
@@ -105,6 +127,8 @@ function ProductDescription({ product }: ProductDetailProps): JSX.Element {
           ))}
         </div>
       </div>
+
+      {isModalOpen && <AddedToCart/>}
     </>
   );
 }

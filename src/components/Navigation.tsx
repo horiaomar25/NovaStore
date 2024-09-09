@@ -1,18 +1,14 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import SideCart from "./SideCart";
+import useCart from "../hooks/useCart";
 
 const Navigation = () => {
   // State to open and close mobile menu
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
+  const { cartItems, removeFromCart } = useCart();
 
-  // State to control the SideCart visibility
-  const [openCart, setOpenCart] = useState<boolean>(false);
-
-  // Function to toggle the SideCart
-  const toggleCart = () => {
-    setOpenCart(!openCart);
-  };
+  const toggleCart = () => setMenuOpen(prev => !prev);
 
   return (
     <div className="navbar bg-base-100 shadow-md">
@@ -110,18 +106,24 @@ const Navigation = () => {
                   d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
                 />
               </svg>
-              {/* Conditionally render the SideCart */}
-              <span className="badge badge-sm indicator-item">10</span>
+              {/* Badge count based on cartItems */}
+              <span className="badge badge-sm indicator-item">
+                {cartItems.reduce((acc, item) => acc + item.quantity, 0)}
+              </span>
             </div>
           </div>
         </div>
       </div>
 
       {/* SideCart slides out */}
-      <SideCart isOpen={openCart} toggleCart={toggleCart} />
+      <SideCart
+        isOpen={menuOpen}
+        toggleCart={toggleCart}
+        cartItems={cartItems}
+        removeFromCart={removeFromCart}
+      />
     </div>
   );
 };
 
 export default Navigation;
-

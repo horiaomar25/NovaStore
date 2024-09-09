@@ -1,7 +1,6 @@
-
 import { useNavigate } from "react-router-dom"; // Import useNavigate
 import { Product } from "../types/Products"; // Import the existing Product type
-import addtocard from "../assets/addtocart.png";
+
 import DropDownFilter from "./DropDownFilter";
 // Define props interface for List component
 interface ListProps {
@@ -22,7 +21,7 @@ function List({ products }: ListProps): JSX.Element {
   return (
     <div>
       <h1 className="text-2xl font-bold m-4">Products</h1>
-<DropDownFilter/>
+      <DropDownFilter />
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3  p-10">
         {products.map((product) => (
           <div
@@ -55,13 +54,12 @@ function List({ products }: ListProps): JSX.Element {
                   </div>
                 ))}
               </div>
-              <img src={addtocard} className="w-8 mb-2" />
             </div>
           </div>
         ))}
       </div>
     </div>
   );
-};
+}
 
 export default List;
