@@ -1,36 +1,30 @@
 import React from "react";
 import { useNavigate } from "react-router-dom"; // Import useNavigate
-import { useProducts } from "../hooks/useProducts"; // Adjust import as needed
 import { Product } from "../types/Products"; // Import the existing Product type
 import addtocard from "../assets/addtocart.png";
 import DropDownFilter from "./DropDownFilter";
+// Define props interface for List component
+interface ListProps {
+  products: Product[];
+}
 
-const ProductList: React.FC = () => {
-  const { categories, products, loading, error } = useProducts();
+const List: React.FC<ListProps> = ({ products }) => {
   const navigate = useNavigate(); // Initialize useNavigate
-
-  if (loading) {
-    return <p>Loading...</p>;
-  }
-
-  if (error) {
-    return <p>{error}</p>;
-  }
-
-  const allProducts: Product[] = categories.flatMap(
-    (category) => products[category.slug] || []
-  );
 
   const handleClick = (id: string) => {
     navigate(`/product/${id}`); // Navigate to product detail page
   };
 
+  if (products.length === 0) {
+    return <p>No products found.</p>;
+  }
+
   return (
     <div>
       <h1 className="text-2xl font-bold m-4">Products</h1>
-      <DropDownFilter />
+<DropDownFilter/>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3  p-10">
-        {allProducts.map((product) => (
+        {products.map((product) => (
           <div
             key={product.id}
             className="cursor-pointer border border-black rounded-xl hover:shadow-lg"
@@ -70,4 +64,4 @@ const ProductList: React.FC = () => {
   );
 };
 
-export default ProductList;
+export default List;

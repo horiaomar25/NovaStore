@@ -5,7 +5,7 @@ interface ReviewSectionProps {
   reviews: Review[];
 }
 
-const ReviewSection: React.FC<ReviewSectionProps> = ({ reviews }) => {
+function ReviewSection({ reviews }: ReviewSectionProps): JSX.Element {
   return (
     <section className="flex justify-center items-center flex-col w-full">
 

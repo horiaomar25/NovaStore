@@ -4,7 +4,7 @@ import SideCart from "./SideCart";
 
 const Navigation = () => {
   // State to open and close mobile menu
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState<boolean>(false);
 
   // State to control the SideCart visibility
   const [openCart, setOpenCart] = useState<boolean>(false);

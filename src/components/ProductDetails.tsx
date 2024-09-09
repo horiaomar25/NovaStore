@@ -7,7 +7,7 @@ interface ProductDetailProps {
   product: Product;
 }
 
-const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
+function ProductDetail({ product }: ProductDetailProps): JSX.Element  {
   return (
     <section className="grid grid-cols-1 gap-4 lg:grid-cols-2">
       <ProductDescription product={product}  />

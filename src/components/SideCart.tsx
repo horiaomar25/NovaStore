@@ -6,7 +6,7 @@ interface SideCartProps {
   toggleCart: () => void;
 }
 
-const SideCart: React.FC<SideCartProps> = ({ isOpen, toggleCart }) => {
+function SideCart({ isOpen, toggleCart}: SideCartProps): JSX.Element {
   return (
     <div
       className={`fixed top-0 right-0 w-96 h-screen bg-white z-50 shadow-lg transition-transform duration-300 ${

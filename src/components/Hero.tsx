@@ -14,7 +14,7 @@ export default function Hero() {
           
         />
         <div className="absolute inset-0 flex items-center justify-start p-6">
-          <HeroText /> {/* Use the new TextContent component */}
+          <HeroText /> 
         </div>
       </div>
 

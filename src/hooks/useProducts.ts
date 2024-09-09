@@ -37,6 +37,7 @@ export const useProducts = () => {
 
     fetchData();
   }, []);
+  
 
   return { categories, products, loading, error };
 };

@@ -5,6 +5,8 @@ import ProductList from "./routes/ProductList";
 import ProductPage from "./routes/ProductPage";
 import "./App.css";
 
+import FilteredList from "./routes/FilteredList";
+
 function App() {
   return (
     <>
@@ -15,6 +17,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/productlist" element={<ProductList />} />
             <Route path="/product/:id" element={<ProductPage />} />
+            <Route path="/productlist/:category" element={<FilteredList />} />
           </Routes>
         </main>
       </Router>

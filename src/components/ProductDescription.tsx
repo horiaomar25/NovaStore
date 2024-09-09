@@ -1,26 +1,22 @@
 import React, { useState } from 'react';
-
 import { Product } from '../types/Products';
 
 interface ProductDetailProps {
   product: Product;
-  
 }
 
-const ProductDescription: React.FC<ProductDetailProps> = ({ product }) => {
-  const [quantity, setQuantity] = useState(0);
+function ProductDescription({ product }: ProductDetailProps): JSX.Element {
+  const [quantity, setQuantity] = useState<number>(0);
 
-  const handleIncrease = () => {
+  const handleIncrease = (): void => {
     setQuantity(quantity + 1);
   };
 
-  const handleDecrease = () => {
+  const handleDecrease = (): void => {
     if (quantity > 0) {
       setQuantity(quantity - 1);
     }
   };
-
- 
 
   return (
     <>
@@ -66,7 +62,6 @@ const ProductDescription: React.FC<ProductDetailProps> = ({ product }) => {
         </div>
 
         <button
-        
           className="border border-black text-black py-2 px-4 rounded-lg w-full lg:w-11/12 text-center mt-3 hover:bg-black hover:text-white"
         >
           Add to cart
@@ -112,6 +107,6 @@ const ProductDescription: React.FC<ProductDetailProps> = ({ product }) => {
       </div>
     </>
   );
-};
+}
 
 export default ProductDescription;
