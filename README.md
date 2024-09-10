@@ -20,7 +20,7 @@ using in my project.
 ## Technologies
 
 - **Frontend**: React, TypScript, TailwindCSS, Component Library: DaisyUI
-- **Backend**: DummyJSON API/Custom hooks/ types to define the data
+- **Backend**: DummyJSON API, Custom Hooks, Type Definitions
 - **APIs**: Dummy JSON API
 - **Version Control**: Git, GitHub
 
