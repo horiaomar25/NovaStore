@@ -26,18 +26,18 @@ using in my project.
 
 ## Features
 
-- Able to go to ProductList and see all available project 
-- Display detailed information about each figure, including their biography, achievements, and historical significance.
-- User-friendly interface with easy navigation.
-- Integration with the Historical Figures API and the Wiki API for accurate and up-to-date information.
+- Product List: View a comprehensive list of products.
+- Product Details: Access detailed information about each product, including biography, achievements, and historical significance.
+- User Interface: Designed for ease of navigation with a user-friendly interface.
+- Integration: Connected with Historical Figures API and Wiki API for accurate and up-to-date information.
 
 ## What I learnt
-- Defining data in types when fetching data from API:
-I had to define the data that I fetched from the API in seperate file. This made it easier to deal when building my components as I could use Products.d.ts in my component to define the data I was using and avoid errors.
+- Type Definition: Created TypeScript definitions (e.g., Products.d.ts) to ensure type safety and reduce errors when fetching and using data from APIs.
 
-- Using lib to store fetching the data and then further using that in custom hook (useProduct).
+- Custom Hooks: Developed custom hooks (e.g., useProduct) to handle data fetching and state management efficiently.
 
-- Responsiveness in TailwindCSS
+- Responsiveness: Applied TailwindCSS for creating a responsive and visually appealing design.
+
 ## Installation
 
 To set up the project locally, follow these steps:
