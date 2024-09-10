@@ -8,7 +8,7 @@ export default function TextContent() {
         Discover Your Unique Style
       </h1>
       <p className="text-black mb-6">
-        Explore our curated collection of fashion-forward clothing and exquisite jewelry.
+        Explore our curated collection of fashion-forward clothing and fragences.
       </p>
 
       <div className="flex justify-center items-center ">
