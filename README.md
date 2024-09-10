@@ -1,50 +1,73 @@
-# React + TypeScript + Vite
+# NovaStore
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a ecommerce website that uses data from DummyJSON API. This was built using React with TypeScript and TailwindCSS for styling and responsiveness.
+## Table of Contents
 
-Currently, two official plugins are available:
+- [Introduction](#introduction)
+- [Technologies](#technologies)
+- [Features](#features)
+- [What I Learnt](#whatilearnt)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Introduction
+This is a ecommerce store that displays products using the data from DummyJSON API which is great resource to showcase frontend development. 
+I enjoy building the project as it really helped me to understand the importance of using Typescript and really understand the data that I am 
+using in my project.
 
-## Expanding the ESLint configuration
+## Technologies
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **Frontend**: React, TypScript, TailwindCSS, Component Library: DaisyUI
+- **Backend**: DummyJSON API/Custom hooks/ types to define the data
+- **APIs**: Dummy JSON API
+- **Version Control**: Git, GitHub
 
-- Configure the top-level `parserOptions` property like this:
+## Features
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- Able to go to ProductList and see all available project 
+- Display detailed information about each figure, including their biography, achievements, and historical significance.
+- User-friendly interface with easy navigation.
+- Integration with the Historical Figures API and the Wiki API for accurate and up-to-date information.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## What I learnt
+- Defining data in types when fetching data from API:
+I had to define the data that I fetched from the API in seperate file. This made it easier to deal when building my components as I could use Products.d.ts in my component to define the data I was using and avoid errors.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+- Using lib to store fetching the data and then further using that in custom hook (useProduct).
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+- Responsiveness in TailwindCSS
+## Installation
+
+To set up the project locally, follow these steps:
+
+1. **Clone the repository**:
+    ```bash
+    git clone https://github.com/your-username/historical-figures.git
+    cd historical-figures
+    ```
+
+2. **Install dependencies**:
+    ```bash
+    npm install
+    ```
+
+
+
+3. **Start the development server**:
+    ```bash
+    npm start
+    ```
+
+## Usage
+
+1. Open your browser and navigate to `http://localhost:3000`.
+2. Click on Explore or Shop to see all products
+3. Use the Category select to toggle between different types of products depending on 
+4. You can add products to the cart and delete from the cart.
+
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
