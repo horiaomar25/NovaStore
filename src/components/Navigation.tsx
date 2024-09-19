@@ -117,7 +117,7 @@ const Navigation = () => {
 
       {/* SideCart slides out */}
       <SideCart
-        isOpen={menuOpen}
+        
         toggleCart={toggleCart}
         cartItems={cartItems}
         removeFromCart={removeFromCart}
