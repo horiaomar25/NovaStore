@@ -7,8 +7,9 @@ const Navigation = () => {
   // State to open and close mobile menu
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
   const { cartItems, removeFromCart } = useCart();
+  const [isCartOpen, setIsCartOpen] = useState<boolean>(false);
 
-  const toggleCart = () => setMenuOpen(prev => !prev);
+  const toggleCart = () => setIsCartOpen(prev => !prev);
 
   return (
     <div className="navbar bg-base-100 shadow-md">
@@ -117,7 +118,7 @@ const Navigation = () => {
 
       {/* SideCart slides out */}
       <SideCart
-        
+        isOpen={isCartOpen}
         toggleCart={toggleCart}
         cartItems={cartItems}
         removeFromCart={removeFromCart}
