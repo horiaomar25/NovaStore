@@ -26,9 +26,10 @@ const useCart = () => {
 
   // Save cartItems to localStorage whenever it changes
   useEffect(() => {
+    console.log('Cart updated:', cartItems); // Debugging
     localStorage.setItem('cart', JSON.stringify(cartItems));
   }, [cartItems]);
-
+  
   // Function to add a product to the cart
   const addToCart = (product: ProductCart, quantity: number) => {
     setCartItems(prevItems => {
