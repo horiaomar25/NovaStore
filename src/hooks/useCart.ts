@@ -30,19 +30,23 @@ const useCart = () => {
   }, [cartItems]);
 
   // Function to add a product to the cart
-  const addToCart = (product: CartItem) => {
-    setCartItems((prevItems) => {
-      const existingItem = prevItems.find((item) => item.id === product.id);
-      if (existingItem) {
-        return prevItems.map((item) =>
-          item.id === product.id
-            ? { ...item, quantity: item.quantity + product.quantity }
-            : item
-        );
-      }
-      return [...prevItems, product];
+  const addToCart = (product: ProductCart, quantity: number) => {
+    setCartItems(prevItems => {
+        const existingItem = prevItems.find(item => item.id === product.id);
+
+        if (existingItem) {
+            // Update quantity if item exists
+            return prevItems.map(item =>
+                item.id === product.id
+                    ? { ...item, quantity: item.quantity + quantity } // Add the specified quantity
+                    : item
+            );
+        } else {
+            // Add new item with the specified quantity
+            return [...prevItems, { ...product, quantity }];
+        }
     });
-  };
+};
 
   // Function to remove a product from the cart
   const removeFromCart = (productId: number) => {
