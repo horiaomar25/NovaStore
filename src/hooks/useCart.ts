@@ -30,21 +30,17 @@ const useCart = () => {
   }, [cartItems]);
 
   // Function to add a product to the cart
-  const addToCart = (product: ProductCart, quantity: number) => {
-    setCartItems(prevItems => {
-      const existingItem = prevItems.find(item => item.id === product.id);
-
+  const addToCart = (product: CartItem) => {
+    setCartItems((prevItems) => {
+      const existingItem = prevItems.find((item) => item.id === product.id);
       if (existingItem) {
-        // Update quantity if item exists
-        return prevItems.map(item =>
+        return prevItems.map((item) =>
           item.id === product.id
-            ? { ...item, quantity: item.quantity + quantity }
+            ? { ...item, quantity: item.quantity + product.quantity }
             : item
         );
-      } else {
-        // Add new item if not in cart
-        return [...prevItems, { ...product, quantity }];
       }
+      return [...prevItems, product];
     });
   };
 

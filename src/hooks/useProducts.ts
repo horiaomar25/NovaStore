@@ -27,9 +27,13 @@ export const useProducts = () => {
         });
 
         const productsArray = await Promise.all(productPromises);
+
         setProducts(productsArray.reduce((acc, curr) => ({ ...acc, ...curr }), {}));
+
       } catch (error) {
+
         setError('Failed to fetch categories');
+        
       } finally {
         setLoading(false); // Ensure loading is set to false in both success and failure cases
       }

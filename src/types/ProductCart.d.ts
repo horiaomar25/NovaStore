@@ -4,7 +4,6 @@ export interface ProductCart {
     title: string;
     image: string;
     price: number;
-    // Typo fix: it's 'quantity', not 'quanity'
     quantity: number;
 }
 

@@ -4,7 +4,7 @@ import Payment from "../components/Payment";
 const CheckOut = () => {
   const { cartItems } = useCart(); // Extract cartItems from useCart
 
-  console.log(cartItems); // Add this line to check if cartItems has data
+  
 
   return (
     <>
