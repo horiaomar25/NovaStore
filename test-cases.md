@@ -2,7 +2,7 @@
 
 ## Product List Functionality
 
-### Test Case: Dropdown initial selection showing all categories
+### Test Case: Dropdown initial selection showing all categories - DONE
 - **Steps:**
 1. Navigate to '[https:](http://localhost:3000/productlist)'
 2. Check that select element is visible on the page.
@@ -13,7 +13,9 @@ EXPECTED: All Categories to be seen in dropdown menu
 - **Steps:**
 1. Navigate to '[https:](http://localhost:3000/productlist)'
 2. Click dropdown
-EXPECTED: Dropdown to have several categories to displayed for the user to select.
+3. Check the number of the options in the select element.
+4. Check that the options is equal to array provided in no particular order. To check exact order can use .toStrictEqual.
+EXPECTED: Options in select to have several categories to displayed for the user to select.
 
 ### Test Case: Navigate to category as selected from the dropdown menu
 - **Steps:**

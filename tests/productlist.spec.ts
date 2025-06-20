@@ -15,6 +15,21 @@ test('select should be showing all categories', async ({ page }) => {
   expect(selectedOption).toBe('All Categories');
 })
 
+test('All categories avaliable when clicking on the select element', async ({page}) => {
+    const selectLocator = page.getByTestId('category-select');
+
+    await expect(selectLocator).toBeVisible();
+
+    await selectLocator.click();
+
+    await expect(selectLocator.locator('option')).toHaveCount(7);
+
+    const categoryOptions = await selectLocator.locator('option').allTextContents();
+
+    expect(categoryOptions).toEqual(expect.arrayContaining(['All Categories', 'Beauty', 'Fragrances', 'Tops', 'Womens Bags', 'Womens Shoes', 'Womens Watches']))
+
+})
+
 
 })
 
