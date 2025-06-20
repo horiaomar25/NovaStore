@@ -5,7 +5,8 @@
 ### Test Case: Dropdown initial selection showing all categories
 - **Steps:**
 1. Navigate to '[https:](http://localhost:3000/productlist)'
-2. select to show 'All Categories'.
+2. Check that select element is visible on the page.
+3. Check that 'All Categories' is selected as current option.
 EXPECTED: All Categories to be seen in dropdown menu
 
 ### Test Case: Dropdown displays list of categories

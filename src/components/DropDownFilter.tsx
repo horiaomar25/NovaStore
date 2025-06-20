@@ -22,6 +22,7 @@ const DropDownFilter: React.FC = () => {
     <div>
       <div className='flex flex-col lg:flex-row justify-center items-center mt-10'>
         <select
+         data-testid="category-select"
           className="select w-full max-w-xs border border-black lg:mr-4 xs:mb-4"
           value={selectedCategory}
           onChange={handleCategoryChange}
