@@ -26,6 +26,7 @@ function List({ products }: ListProps): JSX.Element {
         {products.map((product) => (
           <div
             key={product.id}
+            data-testid="product-card"
             className="cursor-pointer border border-black rounded-xl hover:shadow-lg"
             onClick={() => handleClick(product.id.toString())}
           >
@@ -49,7 +50,7 @@ function List({ products }: ListProps): JSX.Element {
 
               <div className="card-actions justify-end mt-4">
                 {product.tags.slice(0, 2).map((tag, index) => (
-                  <div key={index} className="badge badge-outline">
+                  <div key={index} className="badge badge-outline" data-testid="product-tag">
                     {tag}
                   </div>
                 ))}

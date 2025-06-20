@@ -9,7 +9,7 @@
 3. Check that 'All Categories' is selected as current option.
 EXPECTED: All Categories to be seen in dropdown menu
 
-### Test Case: Dropdown displays list of categories
+### Test Case: Dropdown displays list of categories - DONE
 - **Steps:**
 1. Navigate to '[https:](http://localhost:3000/productlist)'
 2. Click dropdown

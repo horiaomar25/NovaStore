@@ -30,6 +30,17 @@ test('All categories avaliable when clicking on the select element', async ({pag
 
 })
 
+test('Navigate to another category by clicking on it and checking tags', async ({ page }) => {
+
+  const selectLocator = page.getByTestId('category-select');
+
+  await expect(selectLocator).toBeVisible();
+
+  await selectLocator.click();
+
+
+})
+
 
 })
 
