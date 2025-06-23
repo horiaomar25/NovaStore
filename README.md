@@ -44,8 +44,8 @@ To set up the project locally, follow these steps:
 
 1. **Clone the repository**:
     ```bash
-    git clone https://github.com/your-username/historical-figures.git
-    cd historical-figures
+    git clone  https://github.com/your-username/historical-figures.git
+   
     ```
 
 2. **Install dependencies**:
