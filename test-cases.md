@@ -17,7 +17,7 @@ EXPECTED: All Categories to be seen in dropdown menu
 4. Check that the options is equal to array provided in no particular order. To check exact order can use .toStrictEqual.
 EXPECTED: Options in select to have several categories to displayed for the user to select.
 
-### Test Case: Navigate to category as selected from the dropdown menu
+### Test Case: Navigate to category as selected from the dropdown menu - DONE
 - **Steps:**
 1. Navigate to '[https:](http://localhost:3000/productlist)'
 2. Click dropdown

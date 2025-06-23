@@ -30,14 +30,22 @@ test('All categories avaliable when clicking on the select element', async ({pag
 
 })
 
-test('Navigate to another category by clicking on it and checking tags', async ({ page }) => {
+/** NOTE: Playwright cannot visually interact with native select elements as it is
+ * handled by the browser UI. Can programatically select an option using .selectOption()
+ */
+test('Navigate to another category by clicking on it and checking tags to confirm', async ({ page }) => {
 
   const selectLocator = page.getByTestId('category-select');
 
   await expect(selectLocator).toBeVisible();
 
-  await selectLocator.click();
+  await selectLocator.selectOption("Beauty");
 
+  await expect(page).toHaveURL('http://localhost:5173/productlist/beauty');
+
+  const productTag = page.getByTestId('product-tag');
+
+  await expect(productTag.first()).toContainText("beauty");
 
 })
 
