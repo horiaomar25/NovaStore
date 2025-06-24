@@ -33,3 +33,11 @@ EXPECTED: URL changed according to the category selected/ Check that the tags on
 3. Click on 'all categories'.
 4. Page to navigate to back to /productlist
 EXPECTED: URL changed back to /productlist
+
+### Test Case: Click on a product card and open up to the product
+- **Steps:**
+1. Navigate to '[https:](http://localhost:3000/productlist/beauty)'
+2. Click on first product card.
+3. Click add to basket button.
+
+EXPECTED: URL changed back to /productlist

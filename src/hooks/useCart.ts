@@ -12,6 +12,8 @@ interface CartItem extends ProductCart {
   quantity: number;
 }
 
+const CART_EVENT = 'cartUpdated'; // custom browser event for cart updates
+
 const useCart = () => {
   // Initialize cartItems from localStorage with error handling
   const [cartItems, setCartItems] = useState<CartItem[]>(() => {
@@ -26,35 +28,46 @@ const useCart = () => {
 
   // Save cartItems to localStorage whenever it changes
   useEffect(() => {
-    console.log('Cart updated:', cartItems); // Debugging
-    localStorage.setItem('cart', JSON.stringify(cartItems));
-  }, [cartItems]);
+    const handleCartUpdate = () => {
+      try {
+        const storedCart = localStorage.getItem('cart');
+        setCartItems(storedCart ? JSON.parse(storedCart) : []);
+      } catch {
+        setCartItems([]);
+       
+      }
+
+    };
+    window.addEventListener(CART_EVENT, handleCartUpdate);
+    return () => window.removeEventListener(CART_EVENT, handleCartUpdate);
+    
+  }, []);
   
-  // Function to add a product to the cart
+  // Save cartItems to localStorage and notify other components whenever it changes
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cartItems));
+    window.dispatchEvent(new Event(CART_EVENT));
+  }, [cartItems]);
+
   const addToCart = (product: ProductCart, quantity: number) => {
     setCartItems(prevItems => {
-        const existingItem = prevItems.find(item => item.id === product.id);
-
-        if (existingItem) {
-            // Update quantity if item exists
-            return prevItems.map(item =>
-                item.id === product.id
-                    ? { ...item, quantity: item.quantity + quantity } // Add the specified quantity
-                    : item
-            );
-        } else {
-            // Add new item with the specified quantity
-            return [...prevItems, { ...product, quantity }];
-        }
+      const existingItem = prevItems.find(item => item.id === product.id);
+      if (existingItem) {
+        return prevItems.map(item =>
+          item.id === product.id
+            ? { ...item, quantity: item.quantity + quantity }
+            : item
+        );
+      } else {
+        return [...prevItems, { ...product, quantity }];
+      }
     });
-};
+  };
 
-  // Function to remove a product from the cart
   const removeFromCart = (productId: number) => {
     setCartItems(prevItems => prevItems.filter(item => item.id !== productId));
   };
 
-  // Function to clear the cart
   const clearCart = () => {
     setCartItems([]);
   };
