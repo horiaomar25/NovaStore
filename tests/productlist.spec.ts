@@ -50,5 +50,30 @@ test('Navigate to another category by clicking on it and checking tags to confir
 })
 
 
+test('Click on product card and navigate to product page', async ({page}) => {
+
+  // locate a product card.
+  const productCard = page.getByTestId("product-card");
+
+  // Select the first product card and click on it.
+  await productCard.first().click();
+
+  // Identify the button in a variable.
+  const addToBasketBtn = page.getByTestId("add-to-basket");
+
+ // Check that it is visible on the page (confirmation of added to the basket).
+  await expect(addToBasketBtn).toBeVisible();
+
+ // Add to the basket
+  await addToBasketBtn.click();
+
+  // Modal expected to appear 
+  const addedToBasketModal = page.getByTestId("add-to-basket-confirmation-modal");
+  await expect(addedToBasketModal).toBeVisible();
+
+  
+})
+
+
 })
 

@@ -85,8 +85,8 @@ function ProductDescription({ product }: ProductDetailProps): JSX.Element {
           </button>
         </div>
 
-        <button className="border border-black text-black py-2 px-4 rounded-lg w-full lg:w-11/12 text-center mt-3 hover:bg-black hover:text-white" onClick={handleAddToCart}>
-          Add to cart
+        <button data-testid="add-to-basket" className="border border-black text-black py-2 px-4 rounded-lg w-full lg:w-11/12 text-center mt-3 hover:bg-black hover:text-white" onClick={handleAddToCart}>
+          Add to basket
         </button>
 
         {/* Product Rating */}
