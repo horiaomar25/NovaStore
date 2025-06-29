@@ -69,10 +69,12 @@ test('Click on product card and navigate to product page', async ({page}) => {
 
   // Modal expected to appear 
   const addedToBasketModal = page.getByTestId("add-to-basket-confirmation-modal");
+
   await expect(addedToBasketModal).toBeVisible();
 
-  
 })
+
+
 
 
 })
